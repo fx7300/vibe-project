@@ -3,86 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>바이브 코더 - 소개</title>
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>환율 차트 대시보드</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        (function () {
-            try {
-                var t = localStorage.getItem('vibe-coder-theme');
-                document.documentElement.setAttribute('data-theme', (t === 'light') ? 'light' : 'dark');
-            } catch (e) {}
-        })();
-    </script>
 </head>
 <body>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="라이트 모드로 전환" title="라이트 모드로 전환">
-        <span class="theme-icon" aria-hidden="true">🌙</span>
-    </button>
     <div class="container">
         <header>
-            <h1 class="name">바이브 코더</h1>
-            <p class="tagline">코딩과 함께하는 여정</p>
+            <h1>환율 차트 대시보드</h1>
+            <p class="subtitle">실시간 환율 정보를 한눈에 확인하세요</p>
         </header>
         
         <main>
-            <section class="about">
-                <h2>소개</h2>
-                <p>
-                    안녕하세요, 바이브 코더입니다. 
-                    코드로 세상을 더 나은 곳으로 만들어가는 개발자입니다.
-                </p>
-            </section>
-            
-            <section class="tech-cards">
-                <h2>다룰 수 있는 기술</h2>
-                <div class="card-grid">
-                    <article class="tech-card">
-                        <div class="tech-card-icon" aria-hidden="true">HTML</div>
-                        <h3>HTML</h3>
-                        <p>웹 페이지의 구조와 콘텐츠를 시맨틱하게 마크업합니다.</p>
-                    </article>
-                    <article class="tech-card">
-                        <div class="tech-card-icon" aria-hidden="true">CSS</div>
-                        <h3>CSS</h3>
-                        <p>레이아웃, 스타일, 반응형 디자인을 구현합니다.</p>
-                    </article>
-                    <article class="tech-card">
-                        <div class="tech-card-icon" aria-hidden="true">Cursor</div>
-                        <h3>Cursor</h3>
-                        <p>AI 기반 에디터로 효율적인 코딩과 협업을 진행합니다.</p>
-                    </article>
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h2>원/달러 (USD/KRW)</h2>
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                        {
+                        "symbol": "FX:USDKRW",
+                        "width": "100%",
+                        "height": "400",
+                        "locale": "ko",
+                        "dateRange": "1D",
+                        "colorTheme": "dark",
+                        "isTransparent": false,
+                        "autosize": true,
+                        "largeChartUrl": ""
+                        }
+                        </script>
+                    </div>
                 </div>
-            </section>
-            
-            <section class="skills">
-                <h2>기술 스택</h2>
-                <div class="skill-tags">
-                    <span class="tag">HTML</span>
-                    <span class="tag">CSS</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">React</span>
-                    <span class="tag">Node.js</span>
+                
+                <div class="chart-card">
+                    <h2>달러 인덱스 (DXY)</h2>
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                        {
+                        "symbol": "TVC:DXY",
+                        "width": "100%",
+                        "height": "400",
+                        "locale": "ko",
+                        "dateRange": "1D",
+                        "colorTheme": "dark",
+                        "isTransparent": false,
+                        "autosize": true,
+                        "largeChartUrl": ""
+                        }
+                        </script>
+                    </div>
                 </div>
-            </section>
-            
-            <section class="projects">
-                <h2>나의 프로젝트</h2>
-                <div id="projects-container" class="projects-grid"></div>
-            </section>
-            
-            <section class="contact">
-                <h2>연락처</h2>
-                <p>그림에 관심이 있으시다면 언제든지 연락주세요.</p>
-            </section>
+                
+                <div class="chart-card">
+                    <h2>원/엔 (JPY/KRW)</h2>
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                        {
+                        "symbol": "FX:JPYKRW",
+                        "width": "100%",
+                        "height": "400",
+                        "locale": "ko",
+                        "dateRange": "1D",
+                        "colorTheme": "dark",
+                        "isTransparent": false,
+                        "autosize": true,
+                        "largeChartUrl": ""
+                        }
+                        </script>
+                    </div>
+                </div>
+                
+                <div class="chart-card">
+                    <h2>원/파운드 (GBP/KRW)</h2>
+                    <div class="tradingview-widget-container">
+                        <div class="tradingview-widget-container__widget"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                        {
+                        "symbol": "FX:GBPKRW",
+                        "width": "100%",
+                        "height": "400",
+                        "locale": "ko",
+                        "dateRange": "1D",
+                        "colorTheme": "dark",
+                        "isTransparent": false,
+                        "autosize": true,
+                        "largeChartUrl": ""
+                        }
+                        </script>
+                    </div>
+                </div>
+            </div>
         </main>
         
         <footer>
-            <p>&copy; 2026 바이브 코더. All rights reserved.</p>
+            <p>데이터 제공: TradingView</p>
         </footer>
     </div>
-    <script src="theme.js"></script>
-    <script src="projects.js"></script>
 </body>
 </html>
