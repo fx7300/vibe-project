@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바이브 코더 - 소개</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('vibe-coder-theme');
+                document.documentElement.setAttribute('data-theme', (t === 'light') ? 'light' : 'dark');
+            } catch (e) {}
+        })();
+    </script>
+</head>
+<body>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="라이트 모드로 전환" title="라이트 모드로 전환">
+        <span class="theme-icon" aria-hidden="true">🌙</span>
+    </button>
+    <div class="container">
+        <header>
+            <h1 class="name">바이브 코더</h1>
+            <p class="tagline">코딩과 함께하는 여정</p>
+        </header>
+        
+        <main>
+            <section class="about">
+                <h2>소개</h2>
+                <p>
+                    안녕하세요, 바이브 코더입니다. 
+                    코드로 세상을 더 나은 곳으로 만들어가는 개발자입니다.
+                </p>
+            </section>
+            
+            <section class="tech-cards">
+                <h2>다룰 수 있는 기술</h2>
+                <div class="card-grid">
+                    <article class="tech-card">
+                        <div class="tech-card-icon" aria-hidden="true">HTML</div>
+                        <h3>HTML</h3>
+                        <p>웹 페이지의 구조와 콘텐츠를 시맨틱하게 마크업합니다.</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-card-icon" aria-hidden="true">CSS</div>
+                        <h3>CSS</h3>
+                        <p>레이아웃, 스타일, 반응형 디자인을 구현합니다.</p>
+                    </article>
+                    <article class="tech-card">
+                        <div class="tech-card-icon" aria-hidden="true">Cursor</div>
+                        <h3>Cursor</h3>
+                        <p>AI 기반 에디터로 효율적인 코딩과 협업을 진행합니다.</p>
+                    </article>
+                </div>
+            </section>
+            
+            <section class="skills">
+                <h2>기술 스택</h2>
+                <div class="skill-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                </div>
+            </section>
+            
+            <section class="contact">
+                <h2>연락처</h2>
+                <p>프로젝트나 협업에 관심이 있으시다면 언제든지 연락주세요.</p>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2026 바이브 코더. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent: #6366f1;
+    --accent-hover: #818cf8;
+    --border: #2a2a2a;
+    --body-gradient: linear-gradient(160deg, #0a0a0a 0%, #0d0d12 40%, #0a0a0f 70%, #08080c 100%);
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    --card-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+    --tag-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+html[data-theme="light"] {
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555555;
+    --accent: #4f46e5;
+    --accent-hover: #6366f1;
+    --border: #e5e5e5;
+    --body-gradient: linear-gradient(160deg, #f0f0f5 0%, #e8e8f0 40%, #f5f5fa 70%, #fafafc 100%);
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    --card-shadow: 0 8px 24px rgba(79, 70, 229, 0.12);
+    --tag-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    background: var(--body-gradient);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* 테마 전환 버튼 */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--shadow);
+}
+.theme-toggle:hover {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+    border-color: var(--accent);
+    transform: scale(1.05);
+}
+.theme-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.4);
+}
+html[data-theme="light"] .theme-toggle:focus {
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.4);
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    background-color: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 60px 40px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+}
+
+.name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.tagline {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+section {
+    animation: fadeIn 0.6s ease-out;
+}
+
+section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+section p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* 기술 카드 섹션 */
+.tech-cards h2 {
+    margin-bottom: 28px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+}
+
+/* 태블릿: 2열 배치 */
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.tech-card {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transform: scale(1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tech-card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--card-shadow);
+    transform: translateY(-4px) scale(1.03);
+}
+
+.tech-card-icon {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.tech-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.tech-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.tag {
+    background-color: var(--bg-primary);
+    color: var(--accent);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--tag-shadow);
+}
+
+footer {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 모바일: 1열 배치 및 전체 반응형 조정 */
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+        align-items: flex-start;
+    }
+    
+    .theme-toggle {
+        top: 12px;
+        right: 12px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.25rem;
+    }
+    
+    .container {
+        padding: 40px 24px;
+        margin-top: 56px;
+    }
+    
+    header {
+        margin-bottom: 40px;
+        padding-bottom: 28px;
+    }
+    
+    .name {
+        font-size: 2.5rem;
+    }
+    
+    .tagline {
+        font-size: 1.1rem;
+    }
+    
+    main {
+        gap: 36px;
+    }
+    
+    section h2 {
+        font-size: 1.5rem;
+    }
+    
+    section p {
+        font-size: 1rem;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .tech-card {
+        padding: 24px 20px;
+    }
+    
+    footer {
+        margin-top: 40px;
+        padding-top: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+    
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    
+    .container {
+        padding: 28px 20px;
+        margin-top: 52px;
+    }
+    
+    .name {
+        font-size: 2rem;
+    }
+    
+    .tech-card-icon {
+        font-size: 1.25rem;
+    }
+    
+    .tech-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .skill-tags {
+        gap: 8px;
+    }
+    
+    .tag {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+}
